@@ -60,7 +60,7 @@ local command_keymappings = {
   -- ["FindFiles"] = "<C-p>",
   ["FindCommands"] = "<C-p>",
   ["FormatCode"] = "<leader>fm",
-  ["FindInProject"] = { mode = "nv", keys = "<C-f>f" },
+  ["FindInProject"] = { mode = "nv", keys = "<leader>fs" },
 }
 
 local function getKey(keybinding)
