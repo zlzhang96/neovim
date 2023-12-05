@@ -1,16 +1,6 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
-
--- disable the <leader>l for Lazy
--- vim.keymap.del("n", "<leader>l", {})
-vim.keymap.del({ "n", "i", "v" }, "<A-j>", {})
-vim.keymap.del({ "n", "i", "v" }, "<A-k>", {})
-
--- Map to Lua functin
-vim.keymap.set("n", "lhs", function()
-  print("real lua function")
-end)
+-- vim.keymap.set("n", "lhs", function()
+--   print("real lua function")
+-- end)
 
 -- Map to multiple modes
 -- vim.keymap.set({"n, v"}, "<leader>lr", vim.lsp.buf.references, { buffer = true })
@@ -36,6 +26,7 @@ map("n", "<leader>wq", ":wqa!<CR>", opt)
 
 -- quit insert mode
 map("i", "jh", "<Esc>", opt)
+map("i", "<C-c>", "<Esc>", opt)
 
 map("n", "J", "G", opt)
 -- map("n", "H", "^", opt)
