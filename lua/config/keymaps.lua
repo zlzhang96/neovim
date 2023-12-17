@@ -31,23 +31,23 @@ map("i", "<C-c>", "<Esc>", opt)
 map("n", "J", "G", opt)
 -- map("n", "H", "^", opt)
 -- map("n", "L", "$", opt)
-map("v", "J", "G", opt)
+-- map("v", "J", "G", opt)
 map("v", "H", "^", opt)
 map("v", "L", "$", opt)
 
 -- 窗口分割
 -- 取消 s 默认功能
 map("n", "s", "", opt)
+-- windows 相关
 map("n", "sv", ":vsp<CR>", opt)
 map("n", "sh", ":sp<CR>", opt)
 -- 关闭当前窗口
-map("n", "sc", "<C-w>c", opt)
+map("n", "sx", "<C-w>c", opt)
 
 map("n", "<S-l>", ":bnext<CR>", opt)
 map("n", "<S-h>", ":bprevious<CR>", opt)
 
 local command_keymappings = {
-  -- use <space><speace>
   -- ["FindFiles"] = "<C-p>",
   ["FindCommands"] = "<C-p>",
   ["FormatCode"] = "<leader>fm",
@@ -77,4 +77,5 @@ local function registerKeys()
     end
   end
 end
+
 registerKeys()

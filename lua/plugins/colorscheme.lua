@@ -2,7 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     opts = {
-      -- transparent = true,
+      transparent = true,
       styles = {
         sidebars = "transparent",
         floats = "transparent",
@@ -16,7 +16,28 @@ return {
         hl.AlphaHeader = {
           fg = c.white,
         }
+        -- change the relative Line number
+        hl.LineNr = {
+          fg = c.white,
+        }
+        hl.CursorLineNr = {
+          fg = c.white,
+        }
       end,
     },
+
+    -- {
+    --   "shaunsingh/nord.nvim",
+    --   config = function()
+    --     vim.g.nord_disable_background = true
+    --     require("nord").set()
+    --   end,
+    -- },
+    -- {
+    --   "LazyVim/LazyVim",
+    --   opts = {
+    --     colorscheme = "nord",
+    --   },
+    -- },
   },
 }
