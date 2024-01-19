@@ -22,7 +22,7 @@ map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
 
 map("n", "<leader>w", ':w!<CR> :echo " Changes Saved!"<CR>', opt)
-map("n", "<leader>wq", ":wqa!<CR>", opt)
+vim.keymap.set("n", "<leader>wq", ":wqa!<CR>", { desc = "Save and quit" })
 
 -- quit insert mode
 map("i", "jh", "<Esc>", opt)
@@ -50,7 +50,7 @@ map("n", "<S-h>", ":bprevious<CR>", opt)
 local command_keymappings = {
   -- ["FindFiles"] = "<C-p>",
   ["FindCommands"] = "<C-p>",
-  ["FormatCode"] = "<leader>fm",
+  -- ["FormatCode"] = "<leader>fm",
   ["FindInProject"] = { mode = "nv", keys = "<leader>fs" },
 }
 
