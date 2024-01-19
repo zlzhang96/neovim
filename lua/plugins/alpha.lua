@@ -5,8 +5,10 @@ return {
   init = false,
   opts = function()
     local dashboard = require("alpha.themes.dashboard")
-
     local Headers = {
+      {
+        [[ THE SOONER YOU START TO CODE, THE LONGER THE PROGRAM WILL TAKE.]],
+      },
       {
         -- 綾波レイ
         [[⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
@@ -75,6 +77,7 @@ return {
         [[⣿⣷⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣶⣾⣿]],
       },
       {
+        -- 派蒙
         [[  ⢜⣾⣻⣯⣿⣻⣽⡯⣻⡜⡆⣿⢿⡿⣿⣿⢿⣿⣿⡿⣿⣯⡻⣿⣿⡧⠈⢿⣿⣿⣿⢿⣻⣗⣳⡀  ]],
         [[ ⢌⣾⣳⡿⣾⣳⣿⣾⢇⣿⢿⣬⢾⣿⣻⣿⢾⡿⣷⣻⣽⣿⢾⣏⢟⣾⡇⠀⠀⠙⠺⠯⠿⠯⢿⣶⢹⡣⡄]],
         [[⡘⡼⣷⣿⣿⣿⡽⣿⣽⢱⣿⣻⣽⣿⣯⣿⣻⡝⣿⣟⣿⣽⣾⡿⣿⢜⢽⠁⠀⠀⠀⡀⢀⢂⢶⣟⣯⣷⢹⢝]],
@@ -100,10 +103,13 @@ return {
 
     -- Make logo random
     math.randomseed(os.time())
-    dashboard.section.header.val = Headers[math.random(#Headers)]
+    -- dashboard.section.header.val = Headers[math.random(#Headers)]
+    -- dashboard.section.header.val = {}
+    dashboard.section.header.val = Headers[1]
     dashboard.section.header.opt = {
       position = "center",
       hl = "Whitespace",
+      weight = "bold",
     }
 
     -- stylua: ignore
