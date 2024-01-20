@@ -1,51 +1,44 @@
--- vim.keymap.set("n", "lhs", function()
---   print("real lua function")
--- end)
-
--- Map to multiple modes
--- vim.keymap.set({"n, v"}, "<leader>lr", vim.lsp.buf.references, { buffer = true })
-
--- leader key 为空
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-local opt = {
-  noremap = true,
-  silent = true,
-}
+local mode_n = { "n" }
+local mode_v = { "v" }
+local mode_i = { "i" }
+local mode_nv = { "n", "v" }
+local opt_n = { noremap = true }
+local opt_ns = { noremap = true, silent = true }
+local opt_nb = { noremap = true, buffer = true }
+local opt_nbs = { noremap = true, buffer = true, silent = true }
 
 -- 本地变量
 local map = vim.api.nvim_set_keymap
 
 -- visual模式下缩进代码
-map("v", "<", "<gv", opt)
-map("v", ">", ">gv", opt)
+map("v", "<", "<gv", opt_ns)
+map("v", ">", ">gv", opt_ns)
 
-map("n", "<leader>w", ':w!<CR> :echo " Changes Saved!"<CR>', opt)
+map("n", "W", ':w!<CR> :echo " Changes Saved!"<CR>', opt_ns)
 vim.keymap.set("n", "<leader>wq", ":wqa!<CR>", { desc = "Save and quit" })
 
 -- quit insert mode
-map("i", "jh", "<Esc>", opt)
-map("i", "<C-c>", "<Esc>", opt)
+map("i", "jh", "<Esc>", opt_ns)
+map("i", "<C-c>", "<Esc>", opt_ns)
 
-map("n", "J", "G", opt)
--- map("n", "H", "^", opt)
--- map("n", "L", "$", opt)
--- map("v", "J", "G", opt)
-map("v", "H", "^", opt)
-map("v", "L", "$", opt)
+map("n", "J", "G", opt_ns)
+-- map("n", "H", "^", opt_ns)
+-- map("n", "L", "$", opt_ns)
+-- map("v", "J", "G", opt_ns)
+map("v", "H", "^", opt_ns)
+map("v", "L", "$", opt_ns)
 
 -- 窗口分割
 -- 取消 s 默认功能
-map("n", "s", "", opt)
+map("n", "s", "", opt_ns)
 -- windows 相关
-map("n", "sv", ":vsp<CR>", opt)
-map("n", "sh", ":sp<CR>", opt)
+map("n", "sv", ":vsp<CR>", opt_ns)
+map("n", "sh", ":sp<CR>", opt_ns)
 -- 关闭当前窗口
-map("n", "sx", "<C-w>c", opt)
+map("n", "sx", "<C-w>c", opt_ns)
 
-map("n", "<S-l>", ":bnext<CR>", opt)
-map("n", "<S-h>", ":bprevious<CR>", opt)
+map("n", "<S-l>", ":bnext<CR>", opt_ns)
+map("n", "<S-h>", ":bprevious<CR>", opt_ns)
 
 local command_keymappings = {
   -- ["FindFiles"] = "<C-p>",
@@ -79,3 +72,9 @@ local function registerKeys()
 end
 
 registerKeys()
+-- vim.keymap.set("n", "lhs", function()
+--   print("real lua function")
+-- end)
+
+-- Map to multiple modes
+-- vim.keymap.set({"n, v"}, "<leader>lr", vim.lsp.buf.references, { buffer = true })
