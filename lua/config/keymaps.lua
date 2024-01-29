@@ -13,6 +13,15 @@ local opt_nbs = { noremap = true, buffer = true, silent = true }
 local opt_nse = { noremap = true, silent = true, expr = true }
 
 local mappings = {
+  -- Basic
+  { from = "jh", to = "<ESC>", mode = mode_iv, opt = opt_ns },
+  { from = "<C-c>", to = "<ESC>", mode = mode_i, opt = opt_ns },
+  { from = "W", to = "<CMD>w<CR> <CMD>echo 'Changes Saved!'<CR>", mode = mode_n, opt = opt_n },
+  { from = "Q", to = "<CMD>q<CR>", mode = mode_n, opt = opt_ns },
+  { from = "<leader>wq", to = "<CMD>wq<CR>", mode = mode_n, opt = opt_ns, desc = "Save and Quit" },
+  { from = "<leader><CR>", to = "<CMD>noh<CR>", mode = mode_n, opt = opt_ns, desc = "Clear hlsearch" },
+  { from = "<ESC>", to = "<CMD>noh<CR>", mode = mode_n, opt = opt_ns },
+
   -- Move
   { from = "j", to = "v:count == 0 ? 'gj' : 'j'", mode = mode_nv, opt = opt_nse },
   { from = "<Down>", to = "v:count == 0 ? 'gj' : 'j'", mode = mode_nv, opt = opt_nse },
@@ -31,6 +40,7 @@ local mappings = {
   { from = "sv", to = "<CMD>vsp<CR>", mode = mode_n, opt = opt_ns },
   { from = "sh", to = "<CMD>sp<CR>", mode = mode_n, opt = opt_ns },
   { from = "sx", to = "<C-w>c", mode = mode_n, opt = opt_ns },
+  { from = "so", to = "<C-w>o", mode = mode_n, opt = opt_ns },
   { from = "<C-h>", to = "<C-w>h", mode = mode_n, opt = opt_ns, desc = "Go to left window" },
   { from = "<C-j>", to = "<C-w>j", mode = mode_n, opt = opt_ns, desc = "Go to lower window" },
   { from = "<C-k>", to = "<C-w>k", mode = mode_n, opt = opt_ns, desc = "Go to upper window" },
@@ -57,17 +67,15 @@ local mappings = {
   { from = "<S-h>", to = "<CMD>bprevious<CR>", mode = mode_n, opt = opt_ns, desc = "Previous buffer" },
   { from = "<S-l>", to = "<CMD>bnext<CR>", mode = mode_n, opt = opt_ns, desc = "Next buffer" },
   { from = "<leader>bb", to = "<CMD>e #<CR>", mode = mode_n, opt = opt_ns, desc = "Last buffer" },
-  { from = "<leader>bd", to = "<C-\\><C-N><C-O>", mode = mode_t, opt = opt_nbs, desc = "Close terminal buffer" },
 
-  --   -- equal to <leader>sg
+  -- Terminal
+  { from = "<ESC>", to = "<C-\\><C-N>", mode = mode_t, opt = opt_ns, desc = "Return terminal-normal mode " },
+  { from = "jh", to = "<C-\\><C-N>", mode = mode_t, opt = opt_ns },
+  { from = "<leader>bd", to = "<C-\\><C-N><C-O>", mode = mode_t, opt = opt_ns, desc = "Close terminal buffer" },
+
+  -- Other
+  -- equal to <leader>sg
   { from = "<leader>fs", to = "<CMD>Telescope live_grep<CR>", mode = mode_nv, opt = opt_ns, desc = "Find text" },
-  { from = "W", to = "<CMD>w<CR> <CMD>echo 'Changes Saved!'<CR>", mode = mode_n, opt = opt_n },
-  { from = "Q", to = "<CMD>q<CR>", mode = mode_n, opt = opt_ns },
-  { from = "<leader>wq", to = "<CMD>wq<CR>", mode = mode_n, opt = opt_ns, desc = "Save and Quit" },
-  -- equal to <ESC>
-  { from = "<leader><CR>", to = "<CMD>noh<CR>", mode = mode_n, opt = opt_ns, desc = "Clear hlsearch" },
-  { from = "jh", to = "<ESC>", mode = mode_iv, opt = opt_ns },
-  { from = "<C-c>", to = "<ESC>", mode = mode_i, opt = opt_ns },
 }
 
 local function bindkeymaps()
