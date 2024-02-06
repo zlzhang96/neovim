@@ -97,14 +97,6 @@ local mappings = {
     opt = opt_ns,
     desc = "Kill float terminal",
   },
-  { from = "<leader>fj", to = "<CMD>FloatermPrev<CR>", mode = mode_n, opt = opt_nb, desc = "Previous float terminal" },
-  {
-    from = "<leader>fj",
-    to = "<C-\\><C-n><CMD>FloatermPrev<CR>",
-    mode = mode_t,
-    opt = opt_ns,
-    desc = "Previous float terminal",
-  },
   { from = "<leader>fk", to = "<CMD>FloatermNext<CR>", mode = mode_n, opt = opt_ns, desc = "Next float terminal" },
   {
     from = "<leader>fk",
