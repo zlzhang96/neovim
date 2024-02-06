@@ -45,7 +45,7 @@ local mappings = {
   { from = "<C-j>", to = "<C-w>j", mode = mode_n, opt = opt_ns, desc = "Go to lower window" },
   { from = "<C-k>", to = "<C-w>k", mode = mode_n, opt = opt_ns, desc = "Go to upper window" },
   { from = "<C-l>", to = "<C-w>l", mode = mode_n, opt = opt_ns, desc = "Go to right window" },
-  -- Resize window
+  -- Resize Window
   { from = "<C-Up>", to = "<CMD>resize +2<CR>", mode = mode_n, opt = opt_ns, desc = "Increase window height" },
   { from = "<C-Down>", to = "<CMD>resize -2<CR>", mode = mode_n, opt = opt_ns, desc = "Decrease window height" },
   {
@@ -72,6 +72,48 @@ local mappings = {
   { from = "<ESC>", to = "<C-\\><C-N>", mode = mode_t, opt = opt_ns, desc = "Return terminal-normal mode " },
   { from = "jh", to = "<C-\\><C-N>", mode = mode_t, opt = opt_ns },
   { from = "<leader>bd", to = "<C-\\><C-N><C-O>", mode = mode_t, opt = opt_ns, desc = "Close terminal buffer" },
+  -- Floaterm
+  { from = "<leader>fn", to = "<CMD>FloatermNew<CR>", mode = mode_n, opt = opt_ns, desc = "Open float terminal" },
+  {
+    from = "<leader>fn",
+    to = "<C-\\><C-n><CMD>FloatermNew<CR>",
+    mode = mode_t,
+    opt = opt_ns,
+    desc = "Open float terminal",
+  },
+  { from = "<leader>ft", to = "<CMD>FloatermToggle<CR>", mode = mode_n, opt = opt_ns, desc = "Toggle float terminal" },
+  {
+    from = "<leader>ft",
+    to = "<C-\\><C-n><CMD>FloatermToggle<CR>",
+    mode = mode_t,
+    opt = opt_ns,
+    desc = "Toggle float terminal",
+  },
+  { from = "<leader>fx", to = "<CMD>FloatermKill<CR>", mode = mode_n, opt = opt_ns, desc = "Kill float terminal" },
+  {
+    from = "<leader>fx",
+    to = "<C-\\><C-n><CMD>FloatermKill<CR>",
+    mode = mode_t,
+    opt = opt_ns,
+    desc = "Kill float terminal",
+  },
+  { from = "<leader>fj", to = "<CMD>FloatermPrev<CR>", mode = mode_n, opt = opt_ns, desc = "Previous float terminal" },
+  {
+    from = "<leader>fj",
+    to = "<C-\\><C-n><CMD>FloatermPrev<CR>",
+    mode = mode_t,
+    opt = opt_ns,
+    desc = "Previous float terminal",
+  },
+  { from = "<leader>fk", to = "<CMD>FloatermNext<CR>", mode = mode_n, opt = opt_ns, desc = "Next float terminal" },
+  {
+    from = "<leader>fk",
+    to = "<C-\\><C-n><CMD>FloatermNext<CR>",
+    mode = mode_t,
+    opt = opt_ns,
+    desc = "Next float terminal",
+  },
+  { from = "<leader>fg", to = "<CMD>FloatermNew lazygit <CR>", mode = mode_n, opt = opt_ns, desc = "Open lazygit" },
 
   -- Other
   -- equal to <leader>sg

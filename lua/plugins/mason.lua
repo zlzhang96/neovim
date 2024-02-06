@@ -6,6 +6,7 @@ return {
     local list = {
       "clang-format",
       "google-java-format",
+      "rustfmt",
       "shfmt",
       "stylua",
 
