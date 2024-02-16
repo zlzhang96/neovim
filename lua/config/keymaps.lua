@@ -110,6 +110,21 @@ local mappings = {
   -- Other
   -- equal to <leader>sg
   { from = "<leader>fs", to = "<CMD>Telescope live_grep<CR>", mode = mode_nv, opt = opt_ns, desc = "Find text" },
+  {
+    from = "<leader>ff",
+    to = "<CMD>Telescope find_files<CR>",
+    mode = mode_n,
+    opt = opt_n,
+    desc = "Find Files(cwd)",
+  },
+  -- equal to <leader><leader>
+  {
+    from = "<leader>fF",
+    to = "<CMD>Telescope git_files<CR>",
+    mode = mode_n,
+    opt = opt_ns,
+    desc = "Find Files(root dir)",
+  },
 }
 
 local function bindkeymaps()
