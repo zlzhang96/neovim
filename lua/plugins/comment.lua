@@ -1,8 +1,12 @@
 return {
+  -- May conflict with ~/.local/share/nvim/lazy/LazyVim/lua/lazyvim/plugins/lsp/keymaps.lua for keymaps with '<leader>cc'
   "numToStr/Comment.nvim",
   lazy = false,
   config = function()
     require("Comment").setup({
+      padding = true,
+      ignore = nil,
+      sticky = true,
       toggler = {
         ---Line-comment toggle keymap
         line = "<leader>cc",
@@ -25,6 +29,12 @@ return {
         ---Add comment at the end of line
         eol = "<leader>cA",
       },
+      mappings = {
+        basic = true,
+        extra = true,
+      },
+      pre_hook = nil,
+      post_hook = nil,
     })
   end,
 }
