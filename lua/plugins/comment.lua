@@ -1,5 +1,6 @@
 return {
-  -- May conflict with ~/.local/share/nvim/lazy/LazyVim/lua/lazyvim/plugins/lsp/keymaps.lua for keymaps with '<leader>cc'
+  -- Due to Codelens within nvim-lspconfig, keymaps may conflict.
+  -- See more in ~/.local/share/nvim/lazy/LazyVim/lua/lazyvim/plugins/lsp/keymaps.lua
   "numToStr/Comment.nvim",
   lazy = false,
   config = function()
@@ -23,11 +24,11 @@ return {
       ---LHS of extra mappings
       extra = {
         ---Add comment on the line above
-        above = "<leader>cO",
+        above = "<leader>co",
         ---Add comment on the line below
-        below = "<leader>co",
+        below = "<leader>cO",
         ---Add comment at the end of line
-        eol = "<leader>cA",
+        eol = "<leader>ce",
       },
       mappings = {
         basic = true,

@@ -107,7 +107,7 @@ local mappings = {
   },
   { from = "<leader>fg", to = "<CMD>FloatermNew lazygit <CR>", mode = mode_n, opt = opt_ns, desc = "Open lazygit" },
 
-  -- Other
+  -- Others
   -- equal to <leader>sg
   { from = "<leader>fs", to = "<CMD>Telescope live_grep<CR>", mode = mode_nv, opt = opt_ns, desc = "Find text" },
   {
