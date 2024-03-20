@@ -7,6 +7,7 @@ vim.opt.encoding = "utf-8"
 
 -- 打开文件时自动切换目录
 vim.opt.autochdir = true
+vim.opt.swapfile = false
 -- leader key 为空格
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "

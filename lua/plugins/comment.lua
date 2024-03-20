@@ -2,7 +2,7 @@ return {
   -- Due to Codelens within nvim-lspconfig, keymaps may conflict.
   -- See more in ~/.local/share/nvim/lazy/LazyVim/lua/lazyvim/plugins/lsp/keymaps.lua
   "numToStr/Comment.nvim",
-  lazy = false,
+  event = "VeryLazy",
   config = function()
     require("Comment").setup({
       padding = true,
