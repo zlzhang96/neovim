@@ -22,6 +22,11 @@ return {
     on_highlights = function(hl, c)
       local util = require("tokyonight.util")
 
+      -- float border in many places
+      hl.FloatBorder = {
+        fg = c.nord_orange,
+      }
+
       -- current cursor line
       hl.CursorLine = {
         bg = c.nord_grey,
@@ -41,7 +46,7 @@ return {
         fg = c.nord_red,
         bg = "NONE",
       }
-      -- info (but on what situation?)
+      -- info (like lazy update info)
       hl.DiagnosticVirtualTextInfo = {
         fg = c.nord_green,
         bg = "NONE",

@@ -2,6 +2,10 @@ return {
   "folke/noice.nvim",
   config = function()
     require("noice").setup({
+      presets = {
+        -- show border in hovering lsp_text
+        lsp_doc_border = true,
+      },
       cmdline = {
         -- view = "cmdline",
         format = {
