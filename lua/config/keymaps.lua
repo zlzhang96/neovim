@@ -1,9 +1,9 @@
 -- recommend to check (telescope)keymaps
-local mode_n = { "n" }
+
+local mode_n = { "n" } -- Normal mode
 local mode_v = { "v" }
 local mode_i = { "i" }
--- Terminal mode
-local mode_t = { "t" }
+local mode_t = { "t" } -- Terminal mode
 local mode_nv = { "n", "v" }
 local mode_iv = { "i", "v" }
 local opt_n = { noremap = true }
@@ -21,6 +21,7 @@ local mappings = {
   { from = "<leader>wq", to = "<CMD>wq<CR>", mode = mode_n, opt = opt_ns, desc = "Save and Quit" },
   { from = "<leader><CR>", to = "<CMD>noh<CR>", mode = mode_n, opt = opt_ns, desc = "Clear hlsearch" },
   { from = "<ESC>", to = "<CMD>noh<CR>", mode = mode_n, opt = opt_ns },
+  { from = "q", to = "", mode = mode_n, opt = opt_ns },
 
   -- Move
   { from = "j", to = "v:count == 0 ? 'gj' : 'j'", mode = mode_nv, opt = opt_nse },
@@ -110,6 +111,7 @@ local mappings = {
   -- Others
   -- equal to <leader>sg
   { from = "<leader>fs", to = "<CMD>Telescope live_grep<CR>", mode = mode_nv, opt = opt_ns, desc = "Find text" },
+  { from = "<leader>se", to = "<CMD>Telescope notify<CR>", mode = mode_n, opt = opt_ns, desc = "Check notify msg" },
   {
     from = "<leader>ff",
     to = "<CMD>Telescope find_files<CR>",

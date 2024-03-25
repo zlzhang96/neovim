@@ -6,6 +6,6 @@ return {
     max_width = "60",
     fps = 5,
     level = 1,
-    timeout = 3000,
+    timeout = 2000,
   },
 }

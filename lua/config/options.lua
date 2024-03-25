@@ -5,6 +5,8 @@
 -- 显式声明字符编码
 vim.opt.encoding = "utf-8"
 
+vim.opt.termguicolors = true
+
 -- 打开文件时自动切换目录
 vim.opt.autochdir = true
 vim.opt.swapfile = false
