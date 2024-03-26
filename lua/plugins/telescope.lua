@@ -7,7 +7,10 @@ return {
         -- enable the preview for short column terminal
         layout_config = {
           horizontal = {
-            preview_cutoff = 0,
+            width = 0.8,
+            preview_cutoff = 50,
+            preview_width = 0.5,
+            result_width = 0.3,
           },
         },
         mappings = {

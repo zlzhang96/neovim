@@ -111,7 +111,7 @@ local mappings = {
   -- Others
   -- equal to <leader>sg
   { from = "<leader>fs", to = "<CMD>Telescope live_grep<CR>", mode = mode_nv, opt = opt_ns, desc = "Find text" },
-  { from = "<leader>se", to = "<CMD>Telescope notify<CR>", mode = mode_n, opt = opt_ns, desc = "Check notify msg" },
+  { from = "<leader>se", to = "<CMD>Telescope notify<CR>", mode = mode_n, opt = opt_ns, desc = "Notify msg" },
   {
     from = "<leader>ff",
     to = "<CMD>Telescope find_files<CR>",
