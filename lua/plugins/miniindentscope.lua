@@ -1,7 +1,9 @@
 return {
   "echasnovski/mini.indentscope",
-  opts = {
-    -- current indent line
-    symbol = "╎",
-  },
+  config = function()
+    require("mini.indentscope").setup({
+      -- current indent line
+      symbol = "╎",
+    })
+  end,
 }

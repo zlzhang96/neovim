@@ -1,12 +1,16 @@
 return {
-  -- seems to use mini.indentscope to replace ibl
   "lukas-reineke/indent-blankline.nvim",
-  opts = {
-    -- style of (other) indent line
-    indent = {
-      -- char = "╎",
-      char = "┊",
-      tab_char = "┊",
-    },
-  },
+  config = function()
+    require("ibl").setup({
+      -- other indent line
+      indent = {
+        -- char = "╎"
+        char = "┊",
+        tab_char = "┊",
+      },
+      scope = {
+        enabled = false,
+      },
+    })
+  end,
 }
