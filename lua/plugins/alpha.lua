@@ -6,9 +6,9 @@ return {
   opts = function()
     local dashboard = require("alpha.themes.dashboard")
     local Headers = {
-      {
-        [[ THE SOONER YOU START TO CODE, THE LONGER THE PROGRAM WILL TAKE.]],
-      },
+      -- {
+      --   [[ THE SOONER YOU START TO CODE, THE LONGER THE PROGRAM WILL TAKE.]],
+      -- },
       {
         -- 綾波レイ
         [[⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿]],
@@ -103,9 +103,9 @@ return {
 
     -- Make logo random
     math.randomseed(os.time())
-    -- dashboard.section.header.val = Headers[math.random(#Headers)]
+    dashboard.section.header.val = Headers[math.random(#Headers)]
     -- dashboard.section.header.val = {}
-    dashboard.section.header.val = Headers[1]
+    -- dashboard.section.header.val = Headers[1]
     dashboard.section.header.opt = {
       position = "center",
       hl = "Whitespace",
@@ -114,13 +114,13 @@ return {
 
     -- stylua: ignore
     dashboard.section.buttons.val = {
-      dashboard.button("f", "  > " .. " Find file", "<cmd> Telescope find_files <cr>"),
-      dashboard.button("n", "  > " .. " New file", "<cmd> ene <BAR> startinsert <cr>"),
+      -- dashboard.button("f", "  > " .. " Find file", "<cmd> Telescope find_files <cr>"),
+      -- dashboard.button("n", "  > " .. " New file", "<cmd> ene <BAR> startinsert <cr>"),
       dashboard.button("r", "  > " .. " Recent files", "<cmd> Telescope oldfiles <cr>"),
-      dashboard.button("s", "  > " .. " Search text", "<cmd> Telescope live_grep <cr>"),
+      -- dashboard.button("s", "  > " .. " Search text", "<cmd> Telescope live_grep <cr>"),
       dashboard.button("c", "  > " .. " Config", "<cmd> lua require('lazyvim.util').telescope.config_files()() <cr>"),
       -- dashboard.button("s", "  > " .. " Restore Session", [[<cmd> lua require("persistence").load() <cr>]]),
-      dashboard.button("x", "  > " .. " Lazy Extras", "<cmd> LazyExtras <cr>"),
+      -- dashboard.button("x", "  > " .. " Lazy Extras", "<cmd> LazyExtras <cr>"),
       dashboard.button("l", "󰒲  > " .. " Lazy", "<cmd> Lazy <cr>"),
       dashboard.button("q", "  > " .. " Quit", "<cmd> qa <cr>"),
     }
