@@ -22,6 +22,7 @@ local mappings = {
   { from = "<leader><CR>", to = "<CMD>noh<CR>", mode = mode_n, opt = opt_ns, desc = "Clear hlsearch" },
   { from = "<ESC>", to = "<CMD>noh<CR>", mode = mode_n, opt = opt_ns },
   { from = "q", to = "", mode = mode_n, opt = opt_ns },
+  { from = "dam", to = "<CMD>delmarks!<CR>", mode = mode_n, opt = opt_ns, desc = "Delete All Marks" },
 
   -- Move
   { from = "j", to = "v:count == 0 ? 'gj' : 'j'", mode = mode_nv, opt = opt_nse },
@@ -32,92 +33,91 @@ local mappings = {
   { from = "H", to = "^", mode = mode_v, opt = opt_ns },
   { from = "L", to = "$", mode = mode_v, opt = opt_ns },
   -- Move Lines
-  { from = "<A-j>", to = "<CMD>m .+1<CR>==", mode = mode_n, opt = opt_ns, desc = "Move down" },
-  { from = "<A-k>", to = "<CMD>m .-2<CR>==", mode = mode_n, opt = opt_ns, desc = "Move up" },
-  { from = "<A-j>", to = ":m '>+1<CR>gv=gv", mode = mode_v, opt = opt_ns, desc = "Move down " },
-  { from = "<A-k>", to = ":m '<-2<CR>gv=gv", mode = mode_v, opt = opt_ns, desc = "Move up " },
+  { from = "<A-j>", to = "<CMD>m .+1<CR>==", mode = mode_n, opt = opt_ns, desc = "Move Down" },
+  { from = "<A-k>", to = "<CMD>m .-2<CR>==", mode = mode_n, opt = opt_ns, desc = "Move Up" },
+  { from = "<A-j>", to = ":m '>+1<CR>gv=gv", mode = mode_v, opt = opt_ns, desc = "Move Down " },
+  { from = "<A-k>", to = ":m '<-2<CR>gv=gv", mode = mode_v, opt = opt_ns, desc = "Move Up " },
 
   -- Windows
   { from = "sv", to = "<CMD>vsp<CR>", mode = mode_n, opt = opt_ns },
   { from = "sh", to = "<CMD>sp<CR>", mode = mode_n, opt = opt_ns },
   { from = "sx", to = "<C-w>c", mode = mode_n, opt = opt_ns },
   { from = "so", to = "<C-w>o", mode = mode_n, opt = opt_ns },
-  { from = "<C-h>", to = "<C-w>h", mode = mode_n, opt = opt_ns, desc = "Go to left window" },
-  { from = "<C-j>", to = "<C-w>j", mode = mode_n, opt = opt_ns, desc = "Go to lower window" },
-  { from = "<C-k>", to = "<C-w>k", mode = mode_n, opt = opt_ns, desc = "Go to upper window" },
-  { from = "<C-l>", to = "<C-w>l", mode = mode_n, opt = opt_ns, desc = "Go to right window" },
+  { from = "<C-h>", to = "<C-w>h", mode = mode_n, opt = opt_ns, desc = "Go to Left Window" },
+  { from = "<C-j>", to = "<C-w>j", mode = mode_n, opt = opt_ns, desc = "Go to Lower Window" },
+  { from = "<C-k>", to = "<C-w>k", mode = mode_n, opt = opt_ns, desc = "Go to Upper Window" },
+  { from = "<C-l>", to = "<C-w>l", mode = mode_n, opt = opt_ns, desc = "Go to Right Window" },
   -- Resize Window
-  { from = "<C-Up>", to = "<CMD>resize +2<CR>", mode = mode_n, opt = opt_ns, desc = "Increase window height" },
-  { from = "<C-Down>", to = "<CMD>resize -2<CR>", mode = mode_n, opt = opt_ns, desc = "Decrease window height" },
+  { from = "<C-Up>", to = "<CMD>resize +2<CR>", mode = mode_n, opt = opt_ns, desc = "Increase Window Height" },
+  { from = "<C-Down>", to = "<CMD>resize -2<CR>", mode = mode_n, opt = opt_ns, desc = "Decrease Window Height" },
   {
     from = "<C-Left>",
     to = "<CMD>vertical resize -2<CR>",
     mode = mode_n,
     opt = opt_ns,
-    desc = "Decrease window width",
+    desc = "Decrease Window Width",
   },
   {
     from = "<C-Right>",
     to = "<CMD>vertical resize +2<CR>",
     mode = mode_n,
     opt = opt_ns,
-    desc = "Increase window width",
+    desc = "Increase Window Width",
   },
 
   -- Buffers
-  { from = "<S-h>", to = "<CMD>bprevious<CR>", mode = mode_n, opt = opt_ns, desc = "Previous buffer" },
-  { from = "<S-l>", to = "<CMD>bnext<CR>", mode = mode_n, opt = opt_ns, desc = "Next buffer" },
-  { from = "<leader>bb", to = "<CMD>e #<CR>", mode = mode_n, opt = opt_ns, desc = "Last buffer" },
+  { from = "<S-h>", to = "<CMD>bprevious<CR>", mode = mode_n, opt = opt_ns, desc = "Previous Buffer" },
+  { from = "<S-l>", to = "<CMD>bnext<CR>", mode = mode_n, opt = opt_ns, desc = "Next Buffer" },
+  { from = "<leader>bb", to = "<CMD>e #<CR>", mode = mode_n, opt = opt_ns, desc = "Last Buffer" },
 
   -- Terminal
-  { from = "<ESC>", to = "<C-\\><C-N>", mode = mode_t, opt = opt_ns, desc = "Return terminal-normal mode " },
+  { from = "<ESC>", to = "<C-\\><C-N>", mode = mode_t, opt = opt_ns, desc = "Return to Terminal-Normal Mode " },
   { from = "jh", to = "<C-\\><C-N>", mode = mode_t, opt = opt_ns },
-  { from = "<leader>bd", to = "<C-\\><C-N><C-O>", mode = mode_t, opt = opt_ns, desc = "Close terminal buffer" },
+  { from = "<leader>bd", to = "<C-\\><C-N><C-O>", mode = mode_t, opt = opt_ns, desc = "Close Terminal Buffer" },
   -- Floaterm
-  { from = "<leader>fn", to = "<CMD>FloatermNew<CR>", mode = mode_n, opt = opt_ns, desc = "Open float terminal" },
+  { from = "<leader>nt", to = "<CMD>FloatermNew<CR>", mode = mode_n, opt = opt_ns, desc = "New Float Terminal" },
   {
-    from = "<leader>fn",
+    from = "<leader>nt",
     to = "<C-\\><C-n><CMD>FloatermNew<CR>",
     mode = mode_t,
     opt = opt_ns,
-    desc = "Open float terminal",
+    desc = "New Float Terminal",
   },
-  { from = "<leader>ft", to = "<CMD>FloatermToggle<CR>", mode = mode_n, opt = opt_ns, desc = "Toggle float terminal" },
+  { from = "<leader>ft", to = "<CMD>FloatermToggle<CR>", mode = mode_n, opt = opt_ns, desc = "Toggle Float Terminal" },
   {
     from = "<leader>ft",
     to = "<C-\\><C-n><CMD>FloatermToggle<CR>",
     mode = mode_t,
     opt = opt_ns,
-    desc = "Toggle float terminal",
+    desc = "Toggle Float Terminal",
   },
-  { from = "<leader>fx", to = "<CMD>FloatermKill<CR>", mode = mode_n, opt = opt_ns, desc = "Kill float terminal" },
+  { from = "<leader>fx", to = "<CMD>FloatermKill<CR>", mode = mode_n, opt = opt_ns, desc = "Kill Float Terminal" },
   {
     from = "<leader>fx",
     to = "<C-\\><C-n><CMD>FloatermKill<CR>",
     mode = mode_t,
     opt = opt_ns,
-    desc = "Kill float terminal",
+    desc = "Kill Float Terminal",
   },
-  { from = "<leader>fk", to = "<CMD>FloatermNext<CR>", mode = mode_n, opt = opt_ns, desc = "Next float terminal" },
+  { from = "<leader>fk", to = "<CMD>FloatermNext<CR>", mode = mode_n, opt = opt_ns, desc = "Next Float Terminal" },
   {
     from = "<leader>fk",
     to = "<C-\\><C-n><CMD>FloatermNext<CR>",
     mode = mode_t,
     opt = opt_ns,
-    desc = "Next float terminal",
+    desc = "Next Float Terminal",
   },
-  { from = "<leader>fg", to = "<CMD>FloatermNew lazygit <CR>", mode = mode_n, opt = opt_ns, desc = "Open lazygit" },
 
   -- Others
-  -- equal to <leader>sg
+  -- equal to <leader>sg and <leader>/
   { from = "<leader>fs", to = "<CMD>Telescope live_grep<CR>", mode = mode_nv, opt = opt_ns, desc = "Find text" },
-  { from = "<leader>se", to = "<CMD>Telescope notify<CR>", mode = mode_n, opt = opt_ns, desc = "Notify msg" },
+  { from = "<leader>fn", to = "<CMD>Telescope notify<CR>", mode = mode_n, opt = opt_ns, desc = "Notifications" },
   {
     from = "<leader>ff",
     to = "<CMD>Telescope find_files<CR>",
     mode = mode_n,
     opt = opt_n,
-    desc = "Find Files(cwd)",
+    desc = "Find Files (cwd)",
   },
   -- equal to <leader><leader>
   {
@@ -125,7 +125,7 @@ local mappings = {
     to = "<CMD>Telescope git_files<CR>",
     mode = mode_n,
     opt = opt_ns,
-    desc = "Find Files(root dir)",
+    desc = "Find Files (Root Dir)",
   },
 }
 
