@@ -1,7 +1,8 @@
 return {
   "folke/tokyonight.nvim",
   opts = {
-    transparent = true,
+    -- in alacritty, close it
+    -- transparent = true,
     styles = {
       sidebars = "transparent",
       floats = "transparent",
@@ -28,21 +29,92 @@ return {
       c.kanagawa_pink = "#B8B4D0"
       c.kanagawa_green = "#7AA79F"
       c.kanagawa_yellow = "#DCD7BA"
+      c.kanagawa_commment = "#727169"
+
+      c.some_green = "#7DAEA3"
+      c.some_blue = "#8BABEB"
+      c.some_red = "#AE7D88"
+      c.ala_term_bg = "#262933"
+
+      c.bg = c.ala_term_bg
+      c.border = c.nord_grey
     end,
     -- customize color
     on_highlights = function(hl, c)
       local util = require("tokyonight.util")
 
-      hl.test = {
-        fg = c.nord_red,
-      }
-      -- TODO: remainging parts to be adjusted
+      -- TODO:
+      -- remainging parts to be adjusted
       --
-      -- hl.BufferLineCloseButton = hl.test
-      -- hl.Conceal = hl.test
+      -- hl.BufferLineCloseButton = {
+      --   fg = c.nord_red,
+      --   bg = c.nord_green,
+      -- }
+      -- hl.BufferLineDevIconLua = hl.BufferLineCloseButton
+
+      -- fuck it is vimdoc(in LazyVim)!!!
+      hl.NormalSB = {
+        fg = c.onedark_white,
+      }
+
+      -- fuck it is mark(in LazyVim)!!!
+      hl.DiagnosticHint = {
+        fg = c.nord_yellow,
+        bold = true,
+      }
+
+      -- Cmp
+      hl.CmpItemAbbr = {
+        fg = c.nord_snow,
+      }
+      hl.CmpNormal = {
+        -- fg = c.nord_yellow,
+        bg = c.bg,
+      }
+      hl.CmpItemAbbrMatch = {
+        fg = c.some_red,
+      }
+      hl.CmpItemAbbrMatchFuzzy = hl.CmpItemAbbrMatch
+      hl.CmpDocNormal = {
+        bg = c.bg,
+      }
+      hl.CmpSelected = {
+        -- bg = c.nord_yellow,
+        bg = c.nord_grey,
+      }
+      hl.CmpBorder = {
+        fg = c.nord_yellow,
+        bg = c.bg,
+      }
+
+      -- scroll bar in cmp and noice
+      --[[ hl.NoiceScrollbarThumb = {
+        bg = c.some_red,
+      } ]]
+      hl.PmenuThumb = {
+        bg = c.nord_yellow,
+      }
 
       hl.Constant = {
         fg = c.nord_orange,
+        -- bold = true,
+      }
+
+      -- Telescope
+      hl.TelescopePromptCounter = {
+        fg = c.nord_pink,
+      }
+      hl.TelescopePromptTitle = {
+        fg = c.nord_yellow,
+      }
+      hl.TelescopeBorder = {
+        fg = c.nord_yellow,
+      }
+      hl.TelescopePromptBorder = hl.TelescopeBorder
+
+      -- relevant context above
+      hl.TreesitterContext = {
+        bg = c.nord_grey,
       }
 
       -- lsp
@@ -53,17 +125,17 @@ return {
       hl["@keyword.function"] = {
         fg = c.onedark_blue,
       }
+      hl.Statement.italic = true
       hl["@type.builtin"] = {
         fg = c.kanagawa_green,
       }
       hl["@variable"] = {
         fg = c.nord_snow,
-        -- fg = "#babfdc",
       }
       hl["@variable.parameter"] = hl["@variable"]
+      hl.DiagnosticUnnecessary = hl["@variable"] -- consistent with normal vars
       hl["@variable.member"] = {
-        -- fg = "#e6c384",
-        fg = "#dcd7ba",
+        fg = c.kanagawa_yellow,
       }
       hl["@property"] = hl["@variable.member"]
       hl["@punctuation.bracket"] = {
@@ -86,9 +158,14 @@ return {
       }
 
       hl.IlluminatedWordRead = {
-        bg = "NONE",
+        -- bg = "NONE"
+        bg = c.nord_grey,
         underline = true,
       }
+      hl.IlluminatedWordText = hl.IlluminatedWordRead
+      hl.IlluminatedWordWrite = hl.IlluminatedWordRead
+      hl.illuminatedWord = hl.IlluminatedWordRead
+      hl.illuminatedCurWord = hl.IlluminatedWordRead
 
       -- GitSigns
       hl.GitSignsAdd = {
@@ -147,9 +224,6 @@ return {
       hl.FloatBorder = {
         fg = c.nord_yellow,
       }
-      hl.TelescopeBorder = {
-        fg = c.nord_yellow,
-      }
 
       -- hint (like unused vars)
       hl.DiagnosticVirtualTextHint = {
@@ -188,8 +262,8 @@ return {
       hl.NoiceCmdlineIconSearch = {
         fg = c.nord_white,
       }
-      -- TODO:orginal input text and func args (not plugin command or config)
-      -- can't locate the hightlights for the latter groups (config is @keyword)
+      -- TODO:
+      -- plain text and func args (not plugin command or config-"@keyword")
       hl.NoiceCmdlinePopup = {
         fg = c.nord_pink,
       }
@@ -204,7 +278,7 @@ return {
         bg = c.none,
       } ]]
       hl.NoicePopupmenu = {
-        fg = c.nord_teal,
+        fg = c.nord_snow,
       }
       --[[ hl.MyPopupMenuText = {
         fg = c.nord_green,
@@ -212,18 +286,16 @@ return {
       } ]]
       hl.NoicePopupmenuSelected = {
         fg = "NONE",
-        bg = c.nord_red,
+        bg = c.nord_grey,
       }
-      hl.NoicePopupmenuMatch = {
-        fg = c.nord_pink,
-      }
-
-      hl.DiagnosticUnnecessary = hl["@variable"] -- consistent with normal vars
+      hl.NoicePopupmenuMatch = hl.CmpItemAbbrMatch
 
       hl.Comment = {
+        -- fg = c.kanagawa_commment,
         fg = c.nord_teal,
         italic = true,
       }
+
       -- current cursor line
       hl.CursorLine = {
         bg = c.nord_grey,
@@ -234,11 +306,13 @@ return {
       }
       -- current line number
       hl.CursorLineNr = {
-        fg = c.nord_yellow,
+        -- fg = c.nord_orange,
+        fg = c.onedark_blue,
+        bold = true,
       }
       -- other indent line
       hl.IblIndent = {
-        fg = c.nord_teal,
+        -- fg = c.nord_teal,
         nocombine = false,
       }
       -- current indent line
@@ -266,10 +340,10 @@ return {
     -- require("onedark").load()
   end, ]]
 
-  -- "rebelot/kanagawa.nvim",
-  -- config = function()
-  --   require("kanagawa").setup({
-  --     transparent = false,
-  --   })
-  -- end,
+  --[[ "rebelot/kanagawa.nvim",
+  config = function()
+    require("kanagawa").setup({
+      transparent = false,
+    })
+  end, ]]
 }
