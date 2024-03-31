@@ -127,6 +127,29 @@ local mappings = {
     opt = opt_ns,
     desc = "Find Files (Root Dir)",
   },
+  -- FlyBuf
+  {
+    from = "<C-b>",
+    to = "<CMD>FlyBuf<CR>",
+    mode = mode_n,
+    opt = opt_ns,
+    desc = "Open FlyBuf",
+  },
+  {
+    from = "<leader>bj",
+    to = "<CMD>FlyBuf<CR>",
+    mode = mode_n,
+    opt = opt_ns,
+    desc = "Open FlyBuf",
+  },
+  -- Gitsings
+  {
+    from = "<leader>gb",
+    to = "<CMD>Gitsigns toggle_current_line_blame<CR>",
+    mode = mode_n,
+    opt = opt_ns,
+    desc = "Toggle Line Blame",
+  },
 }
 
 local function bindkeymaps()
