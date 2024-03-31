@@ -30,11 +30,12 @@ return {
       c.kanagawa_green = "#7AA79F"
       c.kanagawa_yellow = "#DCD7BA"
       c.kanagawa_commment = "#727169"
+      c.kanagawa_red = "#D27E99"
 
+      c.ala_term_bg = "#262933"
       c.some_green = "#7DAEA3"
       c.some_blue = "#8BABEB"
       c.some_red = "#AE7D88"
-      c.ala_term_bg = "#262933"
 
       c.bg = c.ala_term_bg
       c.border = c.nord_grey
@@ -45,12 +46,15 @@ return {
 
       -- TODO:
       -- remainging parts to be adjusted
-      --
+
       -- hl.BufferLineCloseButton = {
       --   fg = c.nord_red,
       --   bg = c.nord_green,
       -- }
       -- hl.BufferLineDevIconLua = hl.BufferLineCloseButton
+      -- hl.LspInfoBorder = {
+      --   fg = c.nord_yellow,
+      -- }
 
       -- fuck it is vimdoc(in LazyVim)!!!
       hl.NormalSB = {
@@ -111,6 +115,12 @@ return {
         fg = c.nord_yellow,
       }
       hl.TelescopePromptBorder = hl.TelescopeBorder
+      hl.TeleScopeMatching = {
+        fg = c.some_red,
+      }
+      hl.TeleScopeSelection = {
+        bg = c.nord_grey,
+      }
 
       -- relevant context above
       hl.TreesitterContext = {
@@ -142,6 +152,9 @@ return {
         fg = c.kanagawa_white,
       }
       hl["@constructor"] = hl["@punctuation.bracket"]
+      hl["@number"] = {
+        fg = c.kanagawa_red,
+      }
 
       -- WhichKey
       hl.WhichKey = {
@@ -158,7 +171,7 @@ return {
       }
 
       hl.IlluminatedWordRead = {
-        -- bg = "NONE"
+        -- bg = "NONE",
         bg = c.nord_grey,
         underline = true,
       }
@@ -177,6 +190,10 @@ return {
       }
       hl.GitSignsDelete = {
         fg = c.nord_red,
+      }
+      hl.GitSignsCurrentLineBlame = {
+        fg = c.kanagawa_white,
+        bg = c.nord_grey,
       }
 
       -- NeoTree
@@ -232,7 +249,7 @@ return {
       }
       -- warn (like duplicate index)
       hl.DiagnosticVirtualTextWarn = {
-        fg = c.yellow,
+        fg = c.nord_yellow,
         bg = "NONE",
       }
       -- error (like syntax error)
@@ -254,21 +271,26 @@ return {
         fg = c.nord_yellow,
       }
       hl.NoiceCmdlineIcon = {
-        fg = c.nord_white,
+        fg = c.nord_yellow,
       }
       hl.NoiceCmdlineLua = {
-        fg = c.nord_white,
+        fg = c.nord_yellow,
       }
       hl.NoiceCmdlineIconSearch = {
-        fg = c.nord_white,
+        fg = c.nord_yellow,
       }
+
       -- TODO:
       -- plain text and func args (not plugin command or config-"@keyword")
       hl.NoiceCmdlinePopup = {
         fg = c.nord_pink,
       }
+      hl.NoiceCmdline = {
+        fg = c.nord_pink,
+      }
 
       -- Popupmenu
+      -- It is of no use for cmp-cmdline
       hl.NoicePopupmenuBorder = {
         fg = c.nord_yellow,
         bg = c.none,
@@ -321,13 +343,34 @@ return {
         -- fg = c.kanagawa_pink,
         nocombine = true,
       }
+
+      -- Alpha
       hl.AlphaHeader = {
         fg = c.white,
+      }
+      hl.AlphaButtons = {
+        fg = c.kanagawa_yellow,
+      }
+      hl.AlphaShortcut = {
+        fg = c.some_green,
+      }
+
+      -- FlyBuf
+      hl.FlyBufBracket = {
+        fg = c.nord_snow,
+        italic = false,
+      }
+      hl.FlyBufBorder = hl.FloatBorder
+      hl.FlyBufCount = {
+        fg = c.some_green,
+        italic = false,
+      }
+      hl.FlyBufShortCut = {
+        fg = c.nord_pink,
       }
     end,
   },
 
-  --plan to blend with onedark
   --[[ "navarasu/onedark.nvim",
   config = function()
     require("onedark").setup({
@@ -337,7 +380,7 @@ return {
       colors = {},
       hightlights = {},
     })
-    -- require("onedark").load()
+    require("onedark").load()
   end, ]]
 
   --[[ "rebelot/kanagawa.nvim",
