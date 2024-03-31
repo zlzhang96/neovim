@@ -2,12 +2,23 @@ return {
   "folke/noice.nvim",
   config = function()
     require("noice").setup({
+      lsp = {
+        -- disable signature help when insert
+        signature = {
+          enabled = false,
+          auto_open = {
+            enabled = false,
+          },
+        },
+      },
+
       presets = {
         -- show border in hovering lsp_text
         lsp_doc_border = true,
       },
       cmdline = {
-        -- view = "cmdline",
+        -- use bottom cmdline to cooperate with cmp-cmdline
+        view = "cmdline",
         format = {
           cmdline = {
             -- config icon
