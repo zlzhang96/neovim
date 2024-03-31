@@ -13,11 +13,44 @@ return {
         },
       },
     },
+    setup = {
+      ["*"] = function()
+        -- diagnostic
+        vim.diagnostic.config({
+          float = {
+            -- border = "rounded",
+            border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+          },
+          -- virtual_text = {
+          --   prefix = "❯",
+          -- },
+        })
+
+        local lspconfig = require("lspconfig")
+        local handlers = {
+          ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "single", max_width = 90 }),
+          ["textDocument/signatureHelp"] = vim.lsp.with(
+            vim.lsp.handlers.signature_help,
+            { border = "single", max_width = 90 }
+          ),
+        }
+        lspconfig.lua_ls.setup({
+          handlers = handlers,
+        })
+
+        --[[ lspconfig.jdtls.setup({
+          handlers = handlers,
+        }) ]]
+      end,
+    },
   },
   init = function()
-    -- disable the keymaps for Codelens
     local keys = require("lazyvim.plugins.lsp.keymaps").get()
+    -- disable keymaps for codelens
     -- keys[#keys + 1] = { "<leader>cc", false }
     -- keys[#keys + 1] = { "<leader>cC", false }
+    -- disable keymaps for signatureHelp
+    keys[#keys + 1] = { "gK", false }
+    keys[#keys + 1] = { "<C-K>", false }
   end,
 }
