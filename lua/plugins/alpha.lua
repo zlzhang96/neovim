@@ -155,6 +155,11 @@ return {
       callback = function()
         local stats = require("lazy").stats()
         local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+
+        -- local handle = io.popen("fortune")
+        -- local fortune = handle:read("*a")
+        -- handle:close()
+
         dashboard.section.footer.val = "⚡ Neovim loaded "
           .. stats.loaded
           .. "/"

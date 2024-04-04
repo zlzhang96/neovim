@@ -36,6 +36,13 @@ return {
         }
         lspconfig.lua_ls.setup({
           handlers = handlers,
+          settings = {
+            Lua = {
+              diagnostics = {
+                globals = { "vim" },
+              },
+            },
+          },
         })
 
         --[[ lspconfig.jdtls.setup({

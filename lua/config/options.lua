@@ -5,6 +5,8 @@
 -- 显式声明字符编码
 vim.opt.encoding = "utf-8"
 
+vim.opt.termguicolors = true
+
 -- 打开文件时自动切换目录
 vim.opt.autochdir = true
 vim.opt.swapfile = false
@@ -32,7 +34,8 @@ vim.opt.showtabline = 2
 vim.opt.laststatus = 2
 
 vim.opt.list = true
-vim.opt.listchars = "space:·,trail:·,lead: ,eol:↲,extends:→,precedes:←,nbsp:+"
+vim.opt.listchars = "tab:»»,space:·,trail:·,lead: ,eol:↲,extends:→,precedes:←,nbsp:+"
+vim.opt.showbreak = "↪"
 
 vim.opt.cmdheight = 1
 vim.opt.scrolloff = 999
