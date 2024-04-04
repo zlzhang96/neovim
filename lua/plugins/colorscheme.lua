@@ -36,6 +36,8 @@ return {
       c.some_green = "#7DAEA3"
       c.some_blue = "#8BABEB"
       c.some_red = "#AE7D88"
+      c.some_grey = "#2E3440"
+      c.some_dark_blue = "#2D4F67"
 
       c.bg = c.ala_term_bg
       c.border = c.nord_grey
@@ -55,6 +57,8 @@ return {
       -- hl.LspInfoBorder = {
       --   fg = c.nord_yellow,
       -- }
+
+      hl.TroubleCount.bg = "NONE"
 
       -- fuck it is vimdoc(in LazyVim)!!!
       hl.NormalSB = {
@@ -96,7 +100,8 @@ return {
         bg = c.some_red,
       } ]]
       hl.PmenuThumb = {
-        bg = c.nord_yellow,
+        -- bg = c.nord_yellow,
+        bg = c.some_dark_blue,
       }
 
       hl.Constant = {
@@ -120,6 +125,8 @@ return {
       }
       hl.TeleScopeSelection = {
         bg = c.nord_grey,
+        bold = true,
+        underline = true,
       }
 
       -- relevant context above
@@ -168,6 +175,10 @@ return {
       }
       hl.WhichKeyGroup = {
         fg = c.nord_pink,
+      }
+      -- Background
+      hl.WhichKeyFloat = {
+        bg = c.some_grey,
       }
 
       hl.IlluminatedWordRead = {
@@ -389,4 +400,6 @@ return {
       transparent = false,
     })
   end, ]]
+
+  -- "savq/melange-nvim",
 }
