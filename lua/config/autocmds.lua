@@ -4,3 +4,5 @@
 
 -- display line number in Telescope Previewe
 vim.cmd("autocmd User TelescopePreviewerLoaded setlocal number")
+-- disable hlsearch in Telescope Previewe
+vim.cmd("autocmd User TelescopePreviewerLoaded setlocal nohlsearch")

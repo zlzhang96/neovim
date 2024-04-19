@@ -44,7 +44,7 @@ return {
     end,
     -- customize color
     on_highlights = function(hl, c)
-      local util = require("tokyonight.util")
+      -- local util = require("tokyonight.util")
 
       -- TODO:
       -- remainging parts to be adjusted

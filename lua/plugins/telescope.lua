@@ -4,6 +4,13 @@ return {
     local actions = require("telescope.actions")
     require("telescope").setup({
       defaults = {
+        dynamic_preview_title = true,
+        path_display = {
+          shorten = {
+            len = 2,
+            exclude = { 1, -1 },
+          },
+        },
         -- enable the preview for short column terminal
         layout_config = {
           horizontal = {
