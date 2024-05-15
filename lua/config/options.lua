@@ -31,7 +31,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.showtabline = 2
-vim.opt.laststatus = 2
+vim.opt.laststatus = 3
 
 vim.opt.list = true
 vim.opt.listchars = "tab:»»,space:·,trail:·,lead: ,eol:↲,extends:→,precedes:←,nbsp:+"
@@ -41,6 +41,14 @@ vim.opt.cmdheight = 1
 vim.opt.scrolloff = 999
 
 vim.opt.undofile = true
+
+-- fold
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldmethod = "expr"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.foldcolumn = "2"
 
 -- 定位上次退出所在行
 vim.api.nvim_create_autocmd("BufReadPost", {

@@ -52,6 +52,20 @@ return {
     },
   },
   init = function()
+    -- display border in LspInfo
+    require("lspconfig.ui.windows").default_options.border = "single"
+    -- local lspwin = require("lspconfig.ui.windows").default_options
+    -- lspwin.border = {
+    --   { "┌", "FloatBorder" },
+    --   { "─", "FloatBorder" },
+    --   { "┐", "FloatBorder" },
+    --   { "│", "FloatBorder" },
+    --   { "┘", "FloatBorder" },
+    --   { "─", "FloatBorder" },
+    --   { "└", "FloatBorder" },
+    --   { "│", "FloatBorder" },
+    -- }
+
     local keys = require("lazyvim.plugins.lsp.keymaps").get()
     -- disable keymaps for codelens
     -- keys[#keys + 1] = { "<leader>cc", false }
